@@ -1,0 +1,26 @@
+---
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Trait
+metadata:
+  name: spring-cloud-gateway
+  description: Define the configurations for a Spring Cloud Gateway to provide a simple and effective route to APIs. Create a useful separation of concern for platform operators to standardize the gateway setup.
+spec:
+  carvelPackages:
+    - refName: spring-cloud-gateway-installer.tanzu.vmware.com
+      alias: spring-cloud-gateway-installer.tanzu.vmware.com
+      versionSelection:
+        constraints: <spring-cloud-gateway-installer.tanzu.vmware.com-version>
+      values:
+        inline:
+          #! Configuration of the Kubernetes service for the gateway
+          service:
+            #! Determines how the Service is exposed. Defaults to ClusterIP.
+            type: ClusterIP
+          count: 1
+          #! List of additional environment variables to apply to the gateway
+          env:
+            - name: spring.cloud.gateway.httpclient.connect-timeout
+              value: "90"
+          gateway:
+            #! Name of the Spring Cloud Gateway resource
+            name: spring-cloud-gateway

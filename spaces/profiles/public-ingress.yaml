@@ -1,0 +1,9 @@
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Profile
+metadata:
+  name: public-ingress
+  description: Deploy an app with public ingress. A space provisioned with this profile will be able to setup public ingress and GSLB for multi-site high availability (active-active, active-passive).
+spec:
+  traits:
+  - name: public-ingress
+    alias: public-ingress

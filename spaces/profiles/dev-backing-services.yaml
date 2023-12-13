@@ -1,0 +1,14 @@
+---
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Profile
+metadata:
+  name: dev-backing-services
+  description: Dynamically provision Bitnami data services. A space provisioned with this profile will be able to provision single cluster data services from the Bitnami catalog. NOTE- Only works for single replica space.
+spec:
+  requiredCapabilities:
+    - name: mysql.bitnami.services.tanzu.vmware.com
+    - name: postgresql.bitnami.services.tanzu.vmware.com
+    - name: rabbitmq.bitnami.services.tanzu.vmware.com
+    - name: redis.bitnami.services.tanzu.vmware.com
+    - name: kafka.bitnami.services.tanzu.vmware.com
+    - name: mongodb.bitnami.services.tanzu.vmware.com
