@@ -8,7 +8,7 @@ spec:
     - alias: multicloud-ingress.tanzu.vmware.com
       refName: multicloud-ingress.tanzu.vmware.com
       versionSelection:
-        constraints: <multicloud-ingress.tanzu.vmware.com-version>
+        constraints: <multicloud-ingress.tanzu.vmware.com-version> #For Beta 2, the version of the multicloud-ingress.tanzu.vmware.com package is 0.0.12. Ensure to keep the version updated.
       values:
         inline:
           name: default-gateway
@@ -24,19 +24,11 @@ spec:
               protocol: HTTP
           gslb:
             provider: AWS
-            policy: ROUND_ROBIN
-            hostedZoneId: hostedZoneIdValue   #AWS HostedZone is a container of DNS record for a domain. HostedZoneId is AWS generated id for a domain
+            hostedZoneId: <hostedZoneIdValue>   #AWS HostedZone is a container of DNS record for a domain. HostedZoneId is AWS generated id for a domain.
             authentication_type: AUTH_TOKEN
-            authentication: #This will eventually be replaced/removed when the Credentials Manager is in place
-              auth_token:
-                access_key: "<replace with access key>"
-                secret_access_key: "<replace with secret access key>"
-                session_token: "<replace with session token>"              
-                default_region: <region>      #Region
-            healthCheck: #Healthcheck for failover; update accordingly
-              path: "/"
-              port: 80
-              protocol: "HTTP"
+            authentication: #This will eventually be replaced/removed when the Credentials Manager is in place.
+              credsRef: <aws secret name> #Name of the secret created in the project workspace consisting of aws access_key, secret_access_key and session_token.
+              region: <region>      #Region
       excludedKeys:
         - domain
         - listenerTemplates
