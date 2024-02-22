@@ -1,0 +1,15 @@
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Trait
+metadata:
+  name: <observabilityTraitName> #Unique Name of the Trait
+  description: Enable observability for the Space Services
+spec:
+  carvelPackages:
+    - alias: observability-traits.tanzu.vmware.com
+      refName: observability-traits.tanzu.vmware.com
+      versionSelection:
+        constraints: <observability-traits.tanzu.vmware.com-version> #For Beta 2, current version is 1.0.0 , Ensure to keep it updated.
+      values:
+        inline:
+          enabled:
+            true
