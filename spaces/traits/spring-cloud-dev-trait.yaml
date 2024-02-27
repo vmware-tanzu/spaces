@@ -3,6 +3,9 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: spring-cloud-dev-trait
+  description: >
+    Installs Spring Cloud Gateway, Config Server and Service Registry as available application infrastructure for your cloud native application architecture.
+    With Spring Cloud profile, you can take advantage of our self-service, enterprise API gateway, configuration delivered at runtime and enhanced service discovery for all Spring applications deployed to the space.
 spec:
   carvelPackages:
     - alias: application-configuration-service-installer.tanzu.vmware.com
@@ -29,8 +32,18 @@ spec:
         constraints: 1.0.0
       values:
         inline:
-          count: 1 # DevMode for development spaces, disables cluster for simpler setup(s)
+          count: 1  # DevMode for development spaces, removes cluster synchronization.
+                    #
+                    # Setting count to > 1 will create individual instances that do NOT share
+                    # sso session and rate-limiting counters.
+                    # For production (with cluster synchronization enabled) configure remove
+                    # configuration keys below and add a Redis binding.
+                    # ```
+                    #  bindings:
+                    #    redis:
+                    #     secret: <redis-configuration-secret>
+                    # ```
           java-opts: "-Dcom.vmware.tanzu.springcloudgateway.dev.mode.enabled=true"
           env:
-            - name: com.vmware.tanzu.springcloudgateway.no-clustering.enabled # Requires SCG-K8s v2.1.9
-              value: true
+            - name: com.vmware.tanzu.springcloudgateway.clustering.enabled # Requires SCG-K8s v2.1.9
+              value: false
