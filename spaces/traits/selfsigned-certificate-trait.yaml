@@ -1,0 +1,13 @@
+# For beta-2 only self-signed certificate issuer is supported.
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Trait
+metadata:
+  name: selfsigned-certificate-issuer
+spec:
+  carvelPackages:
+  - alias: multicloud-cert-manager.tanzu.vmware.com
+    refName: multicloud-cert-manager.tanzu.vmware.com
+    versionSelection:
+      constraints: <version> # multicloud-cert-manager.tanzu.vmware.com trait package version
+    values:
+      inline:
