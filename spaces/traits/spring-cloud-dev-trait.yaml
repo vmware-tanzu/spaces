@@ -1,0 +1,36 @@
+---
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Trait
+metadata:
+  name: spring-cloud-dev-trait
+spec:
+  carvelPackages:
+    - alias: application-configuration-service-installer.tanzu.vmware.com
+      refName: application-configuration-service-installer.tanzu.vmware.com
+      versionSelection:
+        constraints: 1.0.1
+      values:
+        inline:
+          configurationSource:
+            backends:
+            - uri: <https-git-repo-configuration-url>
+    - alias: service-registry-installer.spring.apps.tanzu.vmware.com
+      refName: service-registry-installer.spring.apps.tanzu.vmware.com
+      versionSelection:
+        constraints: 1.0.1
+      values:
+        inline:
+          eurekaServer:
+            replicas: 2
+            imagePullSecretName: <image-pull-secret> # If not provided, can use same as scg
+    - alias: spring-cloud-gateway-installer.tanzu.vmware.com
+      refName: spring-cloud-gateway-installer.tanzu.vmware.com
+      versionSelection:
+        constraints: 1.0.0
+      values:
+        inline:
+          count: 1 # DevMode for development spaces, disables cluster for simpler setup(s)
+          java-opts: "-Dcom.vmware.tanzu.springcloudgateway.dev.mode.enabled=true"
+          env:
+            - name: com.vmware.tanzu.springcloudgateway.no-clustering.enabled # Requires SCG-K8s v2.1.9
+              value: true

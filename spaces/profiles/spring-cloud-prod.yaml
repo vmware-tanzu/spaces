@@ -1,0 +1,16 @@
+---
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Profile
+metadata:
+  name: spring-cloud-prod
+  description: >
+    Configure Application Configuration Service, Service Registry and Spring Cloud Gateway for Kubernetes for Production Workflows.
+    A Space provisioned with this profile will be able to deploy a stateless Spring app(s), setup internal ingress to reach the app, as well as provide configuration via secrets from a Git repository.
+spec:
+  requiredCapabilities:
+    - name: application-configuration-service.tanzu.vmware.com
+    - name: service-registry.spring.tanzu.vmware.com
+    - name: spring-cloud-gateway.tanzu.vmware.com
+  traits:
+    - name: spring-cloud-prod-trait
+      alias: spring-cloud-prod-trait
