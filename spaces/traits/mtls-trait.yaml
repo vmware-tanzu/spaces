@@ -2,6 +2,7 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: mtls.tanzu.vmware.com
+  description: Enables service-to-service and user-to-service data encryption and authentication in space
 spec:
   carvelPackages:
     - alias: mtls.tanzu.vmware.com
