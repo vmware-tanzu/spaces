@@ -3,11 +3,12 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: selfsigned-certificate-issuer
+  description: Configures certificates and certificate issuers to facilitate data encryption and authentication for space services
 spec:
   carvelPackages:
   - alias: multicloud-cert-manager.tanzu.vmware.com
     refName: multicloud-cert-manager.tanzu.vmware.com
     versionSelection:
-      constraints: <version> # multicloud-cert-manager.tanzu.vmware.com trait package version
+      constraints: 2.0.0-build.1 #For Beta 2, the version of the multicloud-cert-manager.tanzu.vmware.com is 2.0.0-build.1. Ensure to keep the version updated
     values:
       inline:
