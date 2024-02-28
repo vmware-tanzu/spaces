@@ -1,7 +1,7 @@
 apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
-  name: <egressTraitName> #Unique Name of the Trait
+  name: egress #Unique Name of the Trait
   description: Egress gateways are complementary to Service Bindings that provide the credentials to communicate to the services enumerated in an egress route
 spec:
   carvelPackages:
@@ -18,4 +18,4 @@ spec:
                   protocol: HTTPS #Protocol Type(HTTP/HTTPS/TCP)
           open: false #Open/Restricted Egress Policy mode
       versionSelection:
-        constraints: <egress.tanzu.vmware.com-version> #For Beta 2, current version is 0.0.1. Ensure to keep it updated.
+        constraints: 0.0.1 #For Beta 2, current version is 0.0.1. Ensure to keep it updated.
