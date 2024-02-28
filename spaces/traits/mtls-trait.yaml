@@ -1,0 +1,13 @@
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Trait
+metadata:
+  name: mtls.tanzu.vmware.com
+spec:
+  carvelPackages:
+    - alias: mtls.tanzu.vmware.com
+      refName: mtls.tanzu.vmware.com
+      versionSelection:
+        constraints: <version> # mtls.tanzu.vmware.com trait package version
+      values:
+        inline:
+          mtlsEnabled: false # For beta-2 false -> PERMISSIVE only supported
