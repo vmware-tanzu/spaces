@@ -11,6 +11,29 @@ spec:
     - name: application-configuration-service.tanzu.vmware.com
     - name: service-registry.spring.tanzu.vmware.com
     - name: spring-cloud-gateway.tanzu.vmware.com
+    - name: bitnami.services.tanzu.vmware.com
   traits:
     - name: spring-cloud-dev-trait
       alias: spring-cloud-dev-trait
+    - name: public-ingress
+      alias: public-ingress
+    - name: mtls.tanzu.vmware.com
+      alias: mtls.tanzu.vmware.com
+    - name: observability-trait
+      alias: observability-trait 
+    - name: selfsigned-certificate-issuer
+      alias: selfsigned-certificate-issuer      
+    - name: spring-cloud-gateway
+      alias: spring-cloud-gateway   
+    - name: server-workload
+      alias: server-workload
+      values:
+        inline:
+          server-workload-installer.tanzu.vmware.com:
+            #! Service account name to be created and granted permissions, associating it with RBAC rules for server workloads.
+            serviceAccountName: server-workload-installer
+          workload-imagepull-secret.tanzu.vmware.com:
+            #! name of ImagePullSecret to be associated with workload serviceAccount.
+            secretName: workload-imagepull-secret
+            #! Service account used for running the workload.
+            serviceAccountName: default          
