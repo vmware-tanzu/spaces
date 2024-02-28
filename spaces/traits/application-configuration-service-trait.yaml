@@ -1,0 +1,11 @@
+---
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Trait
+metadata:
+  name: application-configuration-service-trait
+spec:
+  carvelPackages:
+    - alias: application-configuration-service-installer.tanzu.vmware.com
+      refName: application-configuration-service-installer.tanzu.vmware.com
+      versionSelection:
+        constraints: 1.0.1

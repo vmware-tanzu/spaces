@@ -12,5 +12,14 @@ spec:
     - name: service-registry.spring.tanzu.vmware.com
     - name: spring-cloud-gateway.tanzu.vmware.com
   traits:
-    - name: spring-cloud-prod-trait
-      alias: spring-cloud-prod-trait
+    - name: application-configuration-service-trait
+      alias: application-configuration-service-trait
+      values:
+        inline:
+          configurationSource:
+            backends:
+              - uri: <https-git-repo-configuration-url>
+    - name: service-registry-trait
+      alias: service-registry-trait
+    - name: spring-cloud-gateway-prod-trait
+      alias: spring-cloud-gateway-prod-trait

@@ -2,30 +2,12 @@
 apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
-  name: spring-cloud-dev-trait
+  name: spring-cloud-gateway-dev-trait
   description: >
-    Installs Spring Cloud Gateway, Config Server and Service Registry as available application infrastructure for your cloud native application architecture.
-    With Spring Cloud profile, you can take advantage of our self-service, enterprise API gateway, configuration delivered at runtime and enhanced service discovery for all Spring applications deployed to the space.
+    Define the configurations for a Spring Cloud Gateway to provide a simple and effective route to APIs for development environments.
+    Create a useful separation of concern for platform operators to standardize the gateway setup.
 spec:
   carvelPackages:
-    - alias: application-configuration-service-installer.tanzu.vmware.com
-      refName: application-configuration-service-installer.tanzu.vmware.com
-      versionSelection:
-        constraints: 1.0.1
-      values:
-        inline:
-          configurationSource:
-            backends:
-            - uri: <https-git-repo-configuration-url>
-    - alias: service-registry-installer.spring.apps.tanzu.vmware.com
-      refName: service-registry-installer.spring.apps.tanzu.vmware.com
-      versionSelection:
-        constraints: 1.0.1
-      values:
-        inline:
-          eurekaServer:
-            replicas: 2
-            imagePullSecretName: <image-pull-secret> # If not provided, can use same as scg
     - alias: spring-cloud-gateway-installer.tanzu.vmware.com
       refName: spring-cloud-gateway-installer.tanzu.vmware.com
       versionSelection:
