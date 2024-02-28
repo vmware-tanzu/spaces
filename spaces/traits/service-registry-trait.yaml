@@ -3,6 +3,7 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: service-registry-trait
+  description: Service Registry provides your apps with an implementation of the Service Discovery pattern, one of the key benefits of a microservice-based architecture.
 spec:
   carvelPackages:
     - alias: service-registry-installer.spring.apps.tanzu.vmware.com
@@ -13,4 +14,4 @@ spec:
         inline:
           eurekaServer:
             replicas: 2
-            imagePullSecretName: <image-pull-secret>
+            imagePullSecretName: image-pull-secret

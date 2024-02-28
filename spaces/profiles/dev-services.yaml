@@ -1,0 +1,67 @@
+---
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Profile
+metadata:
+  name: dev-services.tanzu.vmware.com
+  description: >
+    Installs Spring Cloud Gateway, Config Server and Service Registry as available application infrastructure for your cloud native application architecture for development environments.
+    With Spring Cloud profile, you can take advantage of our self-service, enterprise API gateway, configuration delivered at runtime and enhanced service discovery for all Spring applications deployed to the space.
+spec:
+  requiredCapabilities:
+    - name: application-configuration-service.tanzu.vmware.com
+    - name: service-registry.spring.tanzu.vmware.com
+    - name: spring-cloud-gateway.tanzu.vmware.com
+    - name: bitnami.services.tanzu.vmware.com
+  traits:
+    - name: application-configuration-service-trait
+      alias: application-configuration-service-trait
+      values:
+        inline:
+          configurationSource:
+            #! Uri for the Git repo containing application configuration to pull.
+            backends:
+              - uri: <https-git-repo-configuration-url>
+    - name: service-registry-trait
+      alias: service-registry-trait
+    - name: spring-cloud-gateway-trait
+      alias: spring-cloud-gateway-trait
+      values:
+        inline:
+          count: 1  #! DevMode for development spaces, removes cluster synchronization.
+            #!
+            #! Setting count to > 1 will create individual instances that do NOT share
+            #! sso session and rate-limiting counters.
+            #! For production (with cluster synchronization enabled) configure remove
+            #! configuration keys below and add a Redis binding.
+            #! ```
+            #!  bindings:
+            #!    redis:
+          #!     secret: <redis-configuration-secret>
+          #! ```
+          java-opts: "-Dcom.vmware.tanzu.springcloudgateway.dev.mode.enabled=true"
+          env:
+            #! Requires SCG-K8s v2.1.9
+            - name: com.vmware.tanzu.springcloudgateway.clustering.enabled
+              value: false
+    - name: public-ingress
+      alias: public-ingress
+    - name: mtls.tanzu.vmware.com
+      alias: mtls.tanzu.vmware.com
+    - name: observability-trait
+      alias: observability-trait
+    - name: selfsigned-certificate-issuer
+      alias: selfsigned-certificate-issuer
+    - name: egress
+      alias: egress
+    - name: server-workload
+      alias: server-workload
+      values:
+        inline:
+          server-workload-installer.tanzu.vmware.com:
+            #! Service account name to be created and granted permissions, associating it with RBAC rules for server workloads.
+            serviceAccountName: server-workload-installer
+          workload-imagepull-secret.tanzu.vmware.com:
+            #! name of ImagePullSecret to be associated with workload serviceAccount.
+            secretName: workload-imagepull-secret
+            #! Service account used for running the workload.
+            serviceAccountName: default

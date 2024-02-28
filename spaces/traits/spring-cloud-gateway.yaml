@@ -2,7 +2,7 @@
 apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
-  name: spring-cloud-prod-trait
+  name: spring-cloud-gateway-dev-trait
   description: >
     Define the configurations for a Spring Cloud Gateway to provide a simple and effective route to APIs.
     Create a useful separation of concern for platform operators to standardize the gateway setup.
@@ -12,10 +12,4 @@ spec:
       refName: spring-cloud-gateway-installer.tanzu.vmware.com
       versionSelection:
         constraints: 1.0.0
-      values:
-        inline:
-          count: 2
-          bindings:
-            redis:
-              # Must be provided externally for multi-region setup https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.1/scg-k8s/GUID-guides-redis.html
-              secret: redis-binding-secret
+
