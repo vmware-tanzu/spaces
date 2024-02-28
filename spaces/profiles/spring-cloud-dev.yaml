@@ -20,11 +20,13 @@ spec:
     - name: mtls.tanzu.vmware.com
       alias: mtls.tanzu.vmware.com
     - name: observability-trait
-      alias: observability-trait 
+      alias: observability-trait
     - name: selfsigned-certificate-issuer
-      alias: selfsigned-certificate-issuer      
+      alias: selfsigned-certificate-issuer
+    - name: egress
+      alias: egress
     - name: spring-cloud-gateway
-      alias: spring-cloud-gateway   
+      alias: spring-cloud-gateway
     - name: server-workload
       alias: server-workload
       values:
