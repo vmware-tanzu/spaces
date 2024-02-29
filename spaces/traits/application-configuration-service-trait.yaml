@@ -1,0 +1,15 @@
+---
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Trait
+metadata:
+  name: application-configuration-service-trait
+  description: >
+    Application Configuration Service provides a Kubernetes-native experience to enable the runtime configuration of existing Spring applications that were previously leveraged by using Spring Cloud Config Server.
+    Compatible with the existing Git repository configuration management approach.
+    It filters runtime configuration for any application by using slices that produce secrets.
+spec:
+  carvelPackages:
+    - alias: application-configuration-service-installer.tanzu.vmware.com
+      refName: application-configuration-service-installer.tanzu.vmware.com
+      versionSelection:
+        constraints: 1.0.1
