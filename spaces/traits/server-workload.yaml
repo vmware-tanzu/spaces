@@ -3,7 +3,7 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: server-workload
-  description: Define the specific characteristics and requirements of applications or services running on the cluster.
+  description: Server Workload Trait define the specific characteristics and requirements of applications or services running on the cluster.
 spec:
   carvelPackages:
     - refName: server-workload-installer.tanzu.vmware.com
