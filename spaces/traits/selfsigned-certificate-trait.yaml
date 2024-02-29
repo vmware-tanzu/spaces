@@ -1,4 +1,4 @@
-# For beta-2 only self-signed certificate issuer is supported.
+#! For beta-2 only self-signed certificate issuer is supported.
 apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
