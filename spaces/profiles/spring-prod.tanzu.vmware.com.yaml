@@ -2,9 +2,9 @@
 apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Profile
 metadata:
-  name: dev-services.tanzu.vmware.com
+  name: spring-prod.tanzu.vmware.com
   description: >
-    Installs Spring Cloud Gateway, Config Server and Service Registry as available application infrastructure for your cloud native application architecture for development environments.
+    Installs Spring Cloud Gateway, Config Server and Service Registry as available application infrastructure for your cloud native application architecture.
     With Spring Cloud profile, you can take advantage of our self-service, enterprise API gateway, configuration delivered at runtime and enhanced service discovery for all Spring applications deployed to the space.
 spec:
   requiredCapabilities:
@@ -27,22 +27,11 @@ spec:
       alias: spring-cloud-gateway-trait
       values:
         inline:
-          count: 1  #! DevMode for development spaces, removes cluster synchronization.
-            #!
-            #! Setting count to > 1 will create individual instances that do NOT share
-            #! sso session and rate-limiting counters.
-            #! For production (with cluster synchronization enabled) configure remove
-            #! configuration keys below and add a Redis binding.
-            #! ```
-            #!  bindings:
-            #!    redis:
-          #!     secret: <redis-configuration-secret>
-          #! ```
-          java-opts: "-Dcom.vmware.tanzu.springcloudgateway.dev.mode.enabled=true"
-          env:
-            #! Requires SCG-K8s v2.1.9
-            - name: com.vmware.tanzu.springcloudgateway.clustering.enabled
-              value: false
+          count: 2
+          bindings:
+            redis:
+              #! Must be provided externally for multi-region setup https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.1/scg-k8s/GUID-guides-redis.html
+              secret: redis-binding-secret
     - name: public-ingress
       alias: public-ingress
     - name: mtls.tanzu.vmware.com
