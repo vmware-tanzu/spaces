@@ -2,7 +2,7 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: mtls.tanzu.vmware.com
-  description: MTLS trait Ensure data protection ( security,encryption,Compliance) to  in-flight  traffic within a cluster as part of space.
+  description: MTLS ensure data protection (security, encryption, Compliance) to in-flight traffic within a cluster as part of space.
 spec:
   carvelPackages:
     - alias: mtls.tanzu.vmware.com
