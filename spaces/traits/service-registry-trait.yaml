@@ -3,7 +3,7 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: service-registry-trait
-  description: Service Registry provides your apps with an implementation of the Service Discovery pattern, one of the key benefits of a microservice-based architecture.
+  description: Service Registry provides an app Service Discovery pattern, one of the key benefits of a microservice-based architecture.
 spec:
   carvelPackages:
     - alias: service-registry-installer.spring.apps.tanzu.vmware.com
