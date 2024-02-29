@@ -4,8 +4,7 @@ kind: Trait
 metadata:
   name: spring-cloud-gateway-dev-trait
   description: >
-    Define the configurations for a Spring Cloud Gateway to provide a simple and effective route to APIs.
-    Create a useful separation of concern for platform operators to standardize the gateway setup.
+    Provides configurations for a Spring Cloud Gateway to provide a simple and effective route to APIs.Platform Engineers can standardize the gateway setup.
 spec:
   carvelPackages:
     - alias: spring-cloud-gateway-installer.tanzu.vmware.com
