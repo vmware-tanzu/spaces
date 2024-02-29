@@ -15,12 +15,6 @@ spec:
   traits:
     - name: application-configuration-service-trait
       alias: application-configuration-service-trait
-      values:
-        inline:
-          configurationSource:
-            #! Uri for the Git repo containing application configuration to pull.
-            backends:
-              - uri: <https-git-repo-configuration-url>
     - name: service-registry-trait
       alias: service-registry-trait
     - name: spring-cloud-gateway-trait
