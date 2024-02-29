@@ -1,9 +1,0 @@
----
-apiVersion: spaces.tanzu.vmware.com/v1alpha1
-kind: Profile
-metadata:
-  name: dev-backing-services
-  description: Dynamically provision Bitnami data services. A space provisioned with this profile will be able to provision single cluster data services from the Bitnami catalog. NOTE- Only works for single replica space.
-spec:
-  requiredCapabilities:
-    - name: bitnami.services.tanzu.vmware.com
