@@ -14,4 +14,4 @@ spec:
         inline:
           eurekaServer:
             replicas: 2
-            imagePullSecretName: image-pull-secret
+            imagePullSecretName: spring-cloud-gateway-image-pull-secret
