@@ -8,7 +8,7 @@ spec:
     - alias: observability-traits.tanzu.vmware.com
       refName: observability-traits.tanzu.vmware.com
       versionSelection:
-        constraints: 1.0.0 #For Beta 2, current version is 1.0.0 , Ensure to keep it updated.
+        constraints: 1.0.1 #For Beta 2, current version is 1.0.1 , Ensure to keep it updated.
       values:
         inline:
           enabled:
