@@ -9,7 +9,7 @@ spec:
     - refName: server-workload-installer.tanzu.vmware.com
       alias: server-workload-installer.tanzu.vmware.com
       versionSelection:
-        constraints: <server-workload-installer.tanzu.vmware.com-version>
+        constraints: "0.1.0-alpha.4"
         inline:
           #! List of image pull secrets to be added to the Service Account.
           imagePullSecrets: []
@@ -21,7 +21,7 @@ spec:
     - refName: workload-imagepull-secret.tanzu.vmware.com
       alias: workload-imagepull-secret.tanzu.vmware.com
       versionSelection:
-        constraints: <workload-imagepull-secret.tanzu.vmware.com-version>
+        constraints: "0.1.0-alpha.3"
       values:
         inline:
           #! name of ImagePullSecret to be associated with workload serviceAccount.
