@@ -2,7 +2,7 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: observability-trait
-  description: Enable observability for the Space Services
+  description: PE observability Trait provides observability data related to space and its related components
 spec:
   carvelPackages:
     - alias: observability-traits.tanzu.vmware.com
