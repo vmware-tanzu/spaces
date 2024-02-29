@@ -3,9 +3,7 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Profile
 metadata:
   name: spring.tanzu.vmware.com
-  description: >
-    Installs Spring Cloud Gateway, Config Server and Service Registry as available application infrastructure for your cloud native application architecture.
-    With Spring Cloud profile, you can take advantage of our self-service, enterprise API gateway, configuration delivered at runtime and enhanced service discovery for all Spring applications deployed to the space.
+  description: Spring Cloud Dev Profile Configures Application Configuration Service, Service Registry and Spring Cloud Gateway your cloud native application architecture. With Spring Cloud Dev profile, you can take advantage of our Bitnami services, enterprise API gateway, configuration delivered at runtime and enhanced service discovery with MTLS and Cert manager to provide security to spring applications deployed to the space.
 spec:
   requiredCapabilities:
     - name: application-configuration-service.tanzu.vmware.com
