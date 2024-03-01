@@ -2,7 +2,7 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: public-ingress            
-  description: Configures the ingress gateway for a specified internal service and a URL to be accessed from with the GSLB . Expanding into bringing an application into a new market with different georgraphic locations.
+  description: Ingress enable Developers and Operators to publish Space Services to out-of-the-Space consumers (users or workloads). To achieve this outcome, an ingress gateway is required and a Space Service must be selected.
 spec:
   carvelPackages:
     - alias: multicloud-ingress.tanzu.vmware.com

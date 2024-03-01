@@ -2,7 +2,7 @@ apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
   name: egress #Unique Name of the Trait
-  description: Egress enable Developers and Operators to publish Space Services to out-of-the-Space consumers (users or workloads). To achieve this outcome, an ingress gateway is required and a Space must be selected.
+  description: Egress enable Developers and Operators to access out-of-the-Space services from the space. Egress gateways are complementary to Service Bindings that provide the credentials to communicate to the services enumerated in an egress route.
 spec:
   carvelPackages:
     - alias: egress.tanzu.vmware.com
