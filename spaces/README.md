@@ -1,4 +1,4 @@
-# OOTB Profiles and Traits
+# Tanzu provided Profiles and Traits
 
 This dir organises all Tanzu provided Profiles and Traits YAMLs for [Tanzu Application Engine][tanzu-application-engine].
 
@@ -12,7 +12,7 @@ For general information about Packages, visit the [official website][carvel] and
 [carvel]: https://carvel.dev
 [carvel-github]: https://github.com/carvel-dev/carvel
 
-## Structure for OOTB YAMLs
+## Structure for Tanzu provided YAMLs
 
 ```
 ├── README.md
@@ -31,6 +31,6 @@ For general information about Packages, visit the [official website][carvel] and
     └── spring-cloud-gateway.yaml
 ```
 
-## Using OOTB YAMLs for profiles and traits
+## Using Tanzu provided YAMLs for profiles and traits
 
 Please refer to documentation for usage instructions.
