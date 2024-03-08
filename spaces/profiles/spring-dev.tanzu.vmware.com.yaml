@@ -10,6 +10,7 @@ spec:
     - name: service-registry.spring.tanzu.vmware.com
     - name: spring-cloud-gateway.tanzu.vmware.com
     - name: bitnami.services.tanzu.vmware.com
+    - name: container-app.tanzu.vmware.com
   traits:
     - name: application-configuration-service-trait
       alias: application-configuration-service-trait
