@@ -37,13 +37,13 @@ spec:
       alias: selfsigned-certificate-issuer
     - name: egress
       alias: egress
-    - name: server-workload
-      alias: server-workload
+    - name: workload-installer
+      alias: workload-installer
       values:
         inline:
-          server-workload-installer.tanzu.vmware.com:
+          workload-installer.tanzu.vmware.com:
             #! Service account name to be created and granted permissions, associating it with RBAC rules for server workloads.
-            serviceAccountName: server-workload-installer
+            serviceAccountName: workload-installer
           workload-imagepull-secret.tanzu.vmware.com:
             #! name of ImagePullSecret to be associated with workload serviceAccount.
             secretName: workload-imagepull-secret
