@@ -18,24 +18,6 @@ spec:
       alias: service-registry-trait
     - name: spring-cloud-gateway-trait
       alias: spring-cloud-gateway-trait
-      values:
-        inline:
-          count: 1  #! DevMode for development spaces, removes cluster synchronization.
-                    #!
-                    #! Setting count to > 1 will create individual instances that do NOT share
-                    #! sso session and rate-limiting counters.
-                    #! For production (with cluster synchronization enabled) configure remove
-                    #! configuration keys below and add a Redis binding.
-                    #! ```
-                    #!  bindings:
-                    #!    redis:
-                    #!     secret: <redis-configuration-secret>
-                    #! ```
-          java-opts: "-Dcom.vmware.tanzu.springcloudgateway.dev.mode.enabled=true"
-          env:
-            #! Requires SCG-K8s v2.1.9
-            - name: com.vmware.tanzu.springcloudgateway.clustering.enabled
-              value: false
     - name: public-ingress
       alias: public-ingress
     - name: mtls.tanzu.vmware.com
