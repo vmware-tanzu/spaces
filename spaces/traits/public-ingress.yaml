@@ -1,9 +1,9 @@
 apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Trait
 metadata:
-  name: public-ingress            
-  description: Ingress enable Developers and Operators to publish Space Services to out-of-the-Space consumers (users or workloads). To achieve this outcome, an ingress gateway is required and a Space Service must be selected.
+  name: public-ingress
 spec:
+  description: Ingress enable Developers and Operators to publish Space Services to out-of-the-Space consumers (users or workloads). To achieve this outcome, an ingress gateway is required and a Space Service must be selected.
   carvelPackages:
     - alias: multicloud-ingress.tanzu.vmware.com
       refName: multicloud-ingress.tanzu.vmware.com
