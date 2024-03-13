@@ -8,7 +8,7 @@ spec:
     - alias: multicloud-ingress.tanzu.vmware.com
       refName: multicloud-ingress.tanzu.vmware.com
       versionSelection:
-        constraints: <multicloud-ingress.tanzu.vmware.com-version> #For Beta 2, the version of the multicloud-ingress.tanzu.vmware.com package is 0.0.12. Ensure to keep the version updated.
+        constraints: 0.0.13 #For Beta 2, the current latest version of the multicloud-ingress.tanzu.vmware.com package is 0.0.13. Ensure to keep the version updated.
       values:
         inline:
           name: default-gateway
