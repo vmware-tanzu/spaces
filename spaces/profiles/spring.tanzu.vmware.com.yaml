@@ -8,7 +8,9 @@ spec:
   requiredCapabilities:
     - name: spring-cloud-gateway.tanzu.vmware.com
     - name: bitnami.services.tanzu.vmware.com
-    - name: container-app.tanzu.vmware.com
+    - name: package-management.tanzu.vmware.com
+    - name: services-toolkit.tanzu.vmware.com
+    - name: multicloud-ingress.tanzu.vmware.com
   traits:
     - name: spring-cloud-gateway-trait
       alias: spring-cloud-gateway-trait
@@ -16,8 +18,6 @@ spec:
       alias: public-ingress
     - name: mtls.tanzu.vmware.com
       alias: mtls.tanzu.vmware.com
-    - name: observability-trait
-      alias: observability-trait
     - name: selfsigned-certificate-issuer
       alias: selfsigned-certificate-issuer
     - name: egress
