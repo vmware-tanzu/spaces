@@ -1,0 +1,43 @@
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Trait
+metadata:
+  name: multicloud-ingress.tanzu.vmware.com
+spec:
+  description: >-
+    Ingress enable Developers and Operators to publish Space Services to
+    out-of-the-Space consumers (users or workloads). To achieve this outcome,
+    an ingress gateway is required and a Space Service must be selected.
+  carvelPackages:
+  - refName: multicloud-ingress.tanzu.vmware.com
+    versionSelection:
+      constraints: ">0.0.0"
+      prereleases: {}
+    excludedKeys:
+      - domain
+      - listenerTemplates
+    values:
+      inline:
+        name: default-gateway
+        domain: test.devframework.land
+        listenerTemplates:
+        - namePrefix: https-
+          port: 443
+          protocol: HTTPS
+          tls:
+            secretRef: prod-certs
+        - namePrefix: http-
+          port: 80
+          protocol: HTTP
+        gslb:
+          provider: AWS
+          #! AWS HostedZone is a container of DNS record for a domain.
+          #! HostedZoneId is AWS generated id for a domain.
+          hostedZoneId: <hostedZoneIdValue>
+          authentication_type: AUTH_TOKEN
+          #! This will eventually be replaced/removed when the Credentials
+          #! Manager is in place.
+          authentication:
+            #! Name of the secret created in the project workspace consisting of
+            #! aws access_key, secret_access_key and session_token.
+            credsRef: <aws secret name>
+            region: <region>
