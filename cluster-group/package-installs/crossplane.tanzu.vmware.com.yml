@@ -1,0 +1,11 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: crossplane.tanzu.vmware.com
+  annotations:
+    kapp.k14s.io/change-group: crossplane
+spec:
+  packageRef:
+    refName: crossplane.tanzu.vmware.com
+    versionSelection:
+      constraints: ">0.0.0"

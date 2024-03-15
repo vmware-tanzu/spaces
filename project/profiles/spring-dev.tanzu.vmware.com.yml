@@ -2,25 +2,26 @@
 apiVersion: spaces.tanzu.vmware.com/v1alpha1
 kind: Profile
 metadata:
-  name: spring-prod.tanzu.vmware.com
+  name: spring-dev.tanzu.vmware.com
 spec:
   description: >-
-    Installs Spring Cloud Gateway, Config Server and Service Registry as
-    available application infrastructure for your cloud native application
-    architecture. With Spring Cloud profile, you can take advantage of our
-    self-service, enterprise API gateway, configuration delivered at runtime and
-    enhanced service discovery for all Spring applications deployed to the
-    space.
+    SpringCloud Dev Profile configures Application Configuration Service,
+    Service Registry and Spring Cloud Gateway your cloud native application
+    architecture. With Spring Cloud Dev profile, you can take advantage of our
+    Bitnami services, enterprise API gateway, configuration delivered at runtime
+    and enhanced service discovery with mTLS and cert-manager to provide
+    security to Spring applications deployed to the space.
   requiredCapabilities:
-    - name: aws.services.tanzu.vmware.com
-    - name: container-app.tanzu.vmware.com
+  - name: bitnami.services.tanzu.vmware.com
+  - name: container-app.tanzu.vmware.com
+  - name: mtls.tanzu.vmware.com
+  - name: package-management.tanzu.vmware.com
+  - name: services-toolkit.tanzu.vmware.com
   traits:
   - name: application-configuration-service.tanzu.vmware.com
     alias: application-configuration-service
   - name: egress.tanzu.vmware.com
     alias: egress
-  - name: mtls.tanzu.vmware.com
-    alias: mtls
   - name: multicloud-cert-manager.tanzu.vmware.com
     alias: multicloud-cert-manager
   - name: multicloud-ingress.tanzu.vmware.com
@@ -31,15 +32,6 @@ spec:
     alias: service-registry
   - name: spring-cloud-gateway.tanzu.vmware.com
     alias: spring-cloud-gateway
-    values:
-      inline:
-        installer:
-          count: 2
-          bindings:
-            redis:
-            #! Must be provided externally for multi-region setup
-            #! https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.1/scg-k8s/GUID-guides-redis.html
-            secret: redis-binding-secret
   - name: workload-installer.tanzu.vmware.com
     alias: workload-installer
     values:

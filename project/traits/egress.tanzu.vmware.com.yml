@@ -12,7 +12,6 @@ spec:
   - refName: egress.tanzu.vmware.com
     versionSelection:
       constraints: ">0.0.0"
-      prereleases: {}
     values:
       inline:
         open: false         #! Open/Restricted Egress Policy mode

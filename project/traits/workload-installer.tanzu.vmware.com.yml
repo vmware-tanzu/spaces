@@ -12,7 +12,6 @@ spec:
     alias: installer
     versionSelection:
       constraints: ">0.0.0"
-      prereleases: {}
     excludedKeys:
     - imagePullSecrets
     values:
@@ -23,7 +22,6 @@ spec:
     alias: imagepull-secret
     versionSelection:
       constraints: ">0.0.0"
-      prereleases: {}
     values:
       inline:
         #! name of ImagePullSecret to be associated with workload

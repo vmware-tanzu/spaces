@@ -1,0 +1,11 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:overlay", "overlay")
+
+#@overlay/match by=overlay.all, expects="1+"
+---
+spec:
+  packageRef:
+    versionSelection:
+      #@ if/end data.values.prereleases:
+      #@overlay/match missing_ok=True
+      prereleases: {}

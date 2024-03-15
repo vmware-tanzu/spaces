@@ -1,0 +1,12 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: cert-manager.tanzu.vmware.com
+  annotations:
+    kapp.k14s.io/change-group: cert-manager
+    kapp.k14s.io/change-rule.cert-manager: "upsert after upserting gateway-api"
+spec:
+  packageRef:
+    refName: cert-manager.tanzu.vmware.com
+    versionSelection:
+      constraints: ">0.0.0"
