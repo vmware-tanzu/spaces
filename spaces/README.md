@@ -15,20 +15,17 @@ For general information about Packages, visit the [official website][carvel] and
 ## Structure for Tanzu provided YAMLs
 
 ```
+.
 ├── README.md
 ├── profiles
-│   ├── spring-dev.tanzu.vmware.com.yaml
-│   └── spring-prod.tanzu.vmware.com.yaml
+│   └── spring.tanzu.vmware.com.yaml
 └── traits
-    ├── application-configuration-service-trait.yaml
     ├── egress-trait.yaml
     ├── mtls-trait.yaml
-    ├── observability-trait.yaml
     ├── public-ingress.yaml
     ├── selfsigned-certificate-trait.yaml
-    ├── server-workload.yaml
-    ├── service-registry-trait.yaml
-    └── spring-cloud-gateway.yaml
+    ├── spring-cloud-gateway.yaml
+    └── workload-installer.yaml
 ```
 
 ## Using Tanzu provided YAMLs for profiles and traits
