@@ -12,13 +12,13 @@ spec:
       values:
         inline:
           open: false  #Open/Restricted Egress Policy mode
-          hosts:
-            - name: <hostName>  #Unique Name of the Host
-              host: <hostValue>  #The host value is the domain name of the service to be accessed
-              ports:
-                - number: 443  #Port Number
-                  name: https  #Name of the Port
-                  protocol: HTTPS  #Protocol Type(HTTP/HTTPS/TCP)
-                - number: 80
-                  name: http
-                  protocol: HTTP
+#         hosts:
+#           - name: <hostName>  #Unique Name of the Host
+#             host: <hostValue>  #The host value is the domain name of the service to be accessed
+#             ports:
+#               - number: 443  #Port Number
+#                 name: https  #Name of the Port
+#                 protocol: HTTPS  #Protocol Type(HTTP/HTTPS/TCP)
+#               - number: 80
+#                 name: http
+#                 protocol: HTTP
