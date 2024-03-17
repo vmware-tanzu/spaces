@@ -22,6 +22,8 @@ spec:
       alias: selfsigned-certificate-issuer
     - name: egress
       alias: egress
+    - name: observability
+      alias: observability
     - name: workload-installer
       alias: workload-installer
       values:
