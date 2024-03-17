@@ -11,6 +11,7 @@ spec:
     - name: package-management.tanzu.vmware.com
     - name: services-toolkit.tanzu.vmware.com
     - name: multicloud-ingress.tanzu.vmware.com
+    - name: observability.tanzu.vmware.com
   traits:
     - name: spring-cloud-gateway-trait
       alias: spring-cloud-gateway-trait
@@ -22,6 +23,8 @@ spec:
       alias: selfsigned-certificate-issuer
     - name: egress
       alias: egress
+    - name: observability
+      alias: observability
     - name: workload-installer
       alias: workload-installer
       values:
