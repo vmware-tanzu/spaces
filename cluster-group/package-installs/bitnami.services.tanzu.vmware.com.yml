@@ -1,0 +1,14 @@
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  name: bitnami.services.tanzu.vmware.com
+  annotations:
+    kapp.k14s.io/change-rule.services-toolkit.upsert: "upsert after upserting services-toolkit"
+    kapp.k14s.io/change-rule.services-toolkit.delete: "delete before deleting services-toolkit"
+    kapp.k14s.io/change-rule.crossplane.upsert: "upsert after upserting crossplane"
+    kapp.k14s.io/change-rule.crossplane.delete: "delete before deleting crossplane"
+spec:
+  packageRef:
+    refName: bitnami.services.tanzu.vmware.com
+    versionSelection:
+      constraints: ">0.0.0"

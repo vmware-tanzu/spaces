@@ -1,0 +1,29 @@
+apiVersion: kctrl.carvel.dev/v1alpha1
+kind: PackageBuild
+metadata:
+  creationTimestamp: null
+  name: cluster-group.provided.tanzu.vmware.com
+spec:
+  release:
+  - resource: {}
+  template:
+    spec:
+      app:
+        spec:
+          deploy:
+          - kapp: {}
+          template:
+          - ytt:
+              paths:
+              - overlays
+              - package-installs
+              - values.yml
+          - kbld: {}
+      export:
+      - imgpkgBundle:
+          image: index.docker.io/bhale382/cluster-group.provided.tanzu.vmware.com
+          useKbldImagesLock: true
+        includePaths:
+        - overlays
+        - package-installs
+        - values.yml

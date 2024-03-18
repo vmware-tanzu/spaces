@@ -1,0 +1,59 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: project.provided.tanzu.vmware.com.0.0.0
+  labels:
+    provided.tanzu.vmware.com: "True"
+spec:
+  refName: project.provided.tanzu.vmware.com
+  releasedAt: null
+  template:
+    spec:
+      deploy:
+      - kapp: {}
+      fetch:
+      - git: {}
+      template:
+      - ytt:
+          paths:
+          - availability-targets
+          - profiles
+          - traits
+          - values.yml
+      - kbld: {}
+  valuesSchema:
+    openAPIv3: null
+  version: 0.0.0
+
+---
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: PackageMetadata
+metadata:
+  creationTimestamp: null
+  name: project.provided.tanzu.vmware.com
+spec:
+  displayName: Tanzu-provided Project-scoped resources
+  shortDescription: Tanzu-provided AvailabilityTargets, Profiles, and Traits
+  longDescription: >-
+    The Tanzu-provided AvailabilityTargets, Profiles, and Traits that are added
+    to all new Projects upon their creation.
+
+---
+apiVersion: packaging.carvel.dev/v1alpha1
+kind: PackageInstall
+metadata:
+  annotations:
+    kctrl.carvel.dev/local-fetch-0: .
+  creationTimestamp: null
+  name: project
+spec:
+  packageRef:
+    refName: project.provided.tanzu.vmware.com
+    versionSelection:
+      constraints: 0.0.0
+  serviceAccountName: project-sa
+status:
+  conditions: null
+  friendlyDescription: ""
+  observedGeneration: 0

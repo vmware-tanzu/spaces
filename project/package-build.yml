@@ -1,0 +1,31 @@
+apiVersion: kctrl.carvel.dev/v1alpha1
+kind: PackageBuild
+metadata:
+  creationTimestamp: null
+  name: project.provided.tanzu.vmware.com
+spec:
+  release:
+  - resource: {}
+  template:
+    spec:
+      app:
+        spec:
+          deploy:
+          - kapp: {}
+          template:
+          - ytt:
+              paths:
+              - availability-targets
+              - profiles
+              - traits
+              - values.yml
+          - kbld: {}
+      export:
+      - imgpkgBundle:
+          image: index.docker.io/bhale382/project.provided.tanzu.vmware.com
+          useKbldImagesLock: true
+        includePaths:
+        - availability-targets
+        - profiles
+        - traits
+        - values.yml

@@ -1,0 +1,48 @@
+---
+apiVersion: spaces.tanzu.vmware.com/v1alpha1
+kind: Profile
+metadata:
+  name: spring-dev.tanzu.vmware.com
+spec:
+  description: >-
+    SpringCloud Dev Profile configures Application Configuration Service,
+    Service Registry and Spring Cloud Gateway your cloud native application
+    architecture. With Spring Cloud Dev profile, you can take advantage of our
+    Bitnami services, enterprise API gateway, configuration delivered at runtime
+    and enhanced service discovery with mTLS and cert-manager to provide
+    security to Spring applications deployed to the space.
+  requiredCapabilities:
+  - name: bitnami.services.tanzu.vmware.com
+  - name: container-app.tanzu.vmware.com
+  - name: mtls.tanzu.vmware.com
+  - name: package-management.tanzu.vmware.com
+  - name: services-toolkit.tanzu.vmware.com
+  traits:
+  - name: application-configuration-service.tanzu.vmware.com
+    alias: application-configuration-service
+  - name: egress.tanzu.vmware.com
+    alias: egress
+  - name: multicloud-cert-manager.tanzu.vmware.com
+    alias: multicloud-cert-manager
+  - name: multicloud-ingress.tanzu.vmware.com
+    alias: multicloud-ingress
+  - name: observability.tanzu.vmware.com
+    alias: observability
+  - name: service-registry.tanzu.vmware.com
+    alias: service-registry
+  - name: spring-cloud-gateway.tanzu.vmware.com
+    alias: spring-cloud-gateway
+  - name: workload-installer.tanzu.vmware.com
+    alias: workload-installer
+    values:
+      inline:
+        installer:
+          #! Service account name to be created and granted permissions,
+          #! associating it with RBAC rules for server workloads.
+          serviceAccountName: workload-installer
+        imagepull-secret:
+          #! name of ImagePullSecret to be associated with workload
+          #! serviceAccount.
+          secretName: workload-imagepull-secret
+          #! Service account used for running the workload.
+          serviceAccountName: default
