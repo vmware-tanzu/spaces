@@ -9,4 +9,4 @@ spec:
     - alias: spring-cloud-gateway-installer.tanzu.vmware.com
       refName: spring-cloud-gateway-installer.tanzu.vmware.com
       versionSelection:
-        constraints: 1.0.0
+        constraints: 1.0.1
